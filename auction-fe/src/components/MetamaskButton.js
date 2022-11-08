@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react"
 
+
+
+
+
 function MetamaskButton() {
   const [isMetamaskInstalled, setIsMetamaskInstalled] = useState(false)
   const [account, setAccount] = useState("")

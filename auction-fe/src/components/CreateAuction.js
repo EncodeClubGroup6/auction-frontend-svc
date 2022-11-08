@@ -43,13 +43,18 @@ function CreateAuction() {
   }
 
   const createAuction = async () => {
-    
+    const createAuctionTx = await auctionFactoryContract.createAuction(
+      contractParams.nft_address,
+      contractParams.nft_id,
+      contractParams.starting_bid,
+      contractParams.seller_address,
+      contractParams.auction_token
+    )
+    await createAuctionTx.wait(1)
   }
-
 
   return (
     <div>
-
       <form onSubmit={handleSubmit}>
         <div>
           <h3>Form</h3>
@@ -103,6 +108,7 @@ function CreateAuction() {
           <button type='submit'>Submit Contact</button>
         </div>
       </form>
+      <button onClick={createAuction}>Create Auction</button>
     </div>
   )
 }

@@ -1,3 +1,4 @@
+import CreateAuction from "./components/CreateAuction"
 import MetamaskButton from "./components/MetamaskButton"
 
 function App() {
@@ -5,6 +6,7 @@ function App() {
     <>
       <h1>Hello World</h1>
       <MetamaskButton />
+      <CreateAuction />
     </>
   )
 }

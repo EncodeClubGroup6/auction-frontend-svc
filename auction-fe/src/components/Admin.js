@@ -6,15 +6,17 @@ import NotAllowed from "./NotAllowed"
 function Admin() {
   const [account, setAccount] = useState("")
 
-  useEffect(() => {
-    setAccount(window.ethereum.selectedAddress)
-  }, [])
+  function getStorageValue() {
+    const saved = localStorage.getItem('accountKey');
+    return JSON.parse(saved)
+  }
 
-  return account !== "0x6522bC4253B6Dd81aC7867260fC1f9C7F0433396" ? (
+  return getStorageValue() !== "0x68eff4ec1654f5ac1a4c5a158f37bfb878024921" ? (
     <NotAllowed />
   ) : (
     <Allowed />
   )
+
 }
 
 export default Admin

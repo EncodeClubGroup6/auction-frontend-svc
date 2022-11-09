@@ -20,9 +20,9 @@ function MetamaskButton() {
   return (
     <button
       onClick={connectWallet}
-      className='bg-green-800 hover:bg-green-500 rounded p-2 mb-2 text-white'
+      className='bg-[#ea580c] hover:bg-[#ad652be0] rounded-3xl px-5 py-2 mb-2 text-white border border-white font-mono'
     >
-      WalletButton
+      Sign With Metamask
     </button>
   )
 }

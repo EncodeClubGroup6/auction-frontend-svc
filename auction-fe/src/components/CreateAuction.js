@@ -65,61 +65,69 @@ function CreateAuction(props) {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <h3>Form</h3>
-        </div>
-        <div>
-          <input
-            type='text'
-            onChange={onChange}
-            name='nft_address'
-            placeholder='Nft Address'
-            value={contractParams.nft_address}
-          />
-        </div>
-        <div>
-          <input
-            type='number'
-            onChange={onChange}
-            name='nft_id'
-            placeholder='Nft Id'
-            value={contractParams.nft_id}
-          />
-        </div>
-        <div>
-          <input
-            type='number'
-            onChange={onChange}
-            name='starting_bid'
-            placeholder='Starting Bid'
-            value={contractParams.starting_bid}
-          />
-        </div>
-        <div>
-          <input
-            type='text'
-            onChange={onChange}
-            name='seller_address'
-            placeholder='Seller address'
-            value={contractParams.seller_address}
-          />
-        </div>
-        <div>
-          <input
-            type='text'
-            onChange={onChange}
-            name='auction_token'
-            placeholder='Auction Token'
-            value={contractParams.auction_token}
-          />
-        </div>
-        <div>
-          <button type='submit'>Submit Contact</button>
-        </div>
-      </form>
-      <button onClick={createAuction}>Create Auction</button>
+    <div className="flex items-center justify-center p-12">
+      <div className="mx-auto w-full max-w-[550px]">
+        <form onSubmit={handleSubmit}>
+            <h3 className="font-bold text-2xl text-center">Form</h3>
+          <div className="mb-8 mt-3">
+            <input
+              type='text'
+              onChange={onChange}
+              name='nft_address'
+              placeholder='Nft Address'
+              value={contractParams.nft_address}
+              className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"                 
+            />
+          </div>
+          <div className="mb-8 mt-3">
+            <input
+              type='number'
+              onChange={onChange}
+              name='nft_id'
+              placeholder='Nft Id'
+              value={contractParams.nft_id}
+              className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+            />
+          </div>
+          <div className="mb-8 mt-3">
+            <input
+              type='number'
+              onChange={onChange}
+              name='starting_bid'
+              placeholder='Starting Bid'
+              value={contractParams.starting_bid}
+              className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" 
+            />
+          </div>
+          <div className="mb-8 mt-3">
+            <input
+              type='text'
+              onChange={onChange}
+              name='seller_address'
+              placeholder='Seller address'
+              value={contractParams.seller_address}
+              className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" 
+            />
+          </div>
+          <div className="mb-8 mt-3">
+            <input
+              type='text'
+              onChange={onChange}
+              name='auction_token'
+              placeholder='Auction Token'
+              value={contractParams.auction_token}
+              className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" 
+            />
+          </div>
+          <div className="mt-2">
+            <button type='submit' className="hover:shadow-form w-full rounded-md bg-[#06986c] py-3 px-8 text-center text-base font-semibold text-white outline-none">Submit Contact</button>
+          </div>
+          <div className="mt-2">
+          <button onClick={createAuction} className="hover:shadow-form w-full rounded-md bg-[#06986c] py-3 px-8 text-center text-base font-semibold text-white outline-none">Create Auction</button>
+          </div>
+        </form>
+        
+      </div>
     </div>
   )
 }

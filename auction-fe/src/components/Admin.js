@@ -8,7 +8,7 @@ function Admin() {
 
   useEffect(() => {
     setAccount(window.ethereum.selectedAddress)
-  }, [account])
+  }, [])
 
   return account !== "0x6522bC4253B6Dd81aC7867260fC1f9C7F0433396" ? (
     <NotAllowed />

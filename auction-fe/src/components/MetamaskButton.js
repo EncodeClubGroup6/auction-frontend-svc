@@ -7,20 +7,6 @@ function MetamaskButton() {
   const [account, setAccount] = useState("")
   const [balance, setBalance] = useState("")
 
-  // const walletBalance = async () => {
-  //   const metamaskWalletProvider = new ethers.providers.Web3Provider(
-  //     window.ethereum
-  //   )
-  //   const signer = await metamaskWalletProvider.getSigner()
-  //   const ethBalance = await signer.getBalance()
-  //   bigNumberToETHString(ethBalance)
-  // }
-  // useEffect(() => {
-  //   if (account !== "") {
-  //     setBalance(walletBalance.toString())
-  //   }
-  // }, [balance])
-
   useEffect(() => {
     if (window.ethereum) {
       setIsMetamaskInstalled(true)
@@ -34,20 +20,34 @@ function MetamaskButton() {
     setAccount(accounts[0])
   }
 
+  useEffect(() => {
+    const walletBalance = async () => {
+      const balance = await window.ethereum.request({
+        method: "eth_getBalance",
+        params: [account, "latest"],
+      })
+      setBalance(ethers.utils.formatEther(balance))
+    }
+    walletBalance()
+  }, [])
+
   return !account ? (
     <button
       onClick={connectWallet}
-      className='bg-[#ea580c] hover:bg-[#ad652be0] rounded-3xl px-5 py-2 mb-2 text-white border border-white font-mono'
+      className='bg-[#ea580c] rounded-3xl px-5 py-2 mb-2 text-white border border-white font-mono'
     >
       Sign With Metamask
     </button>
   ) : (
     <>
-      {/* <h1>{balance}</h1> */}
-      <h1>
+      <h1>{balance} MATIC</h1>
+      <button
+        onClick={connectWallet}
+        className='bg-[#ad652be0] rounded-3xl px-5 py-2 mb-2 text-white border border-white font-mono'
+      >
         {account.slice(0, 6)}...
         {account.slice(account.length - 4, account.length)}
-      </h1>
+      </button>
     </>
   )
 }

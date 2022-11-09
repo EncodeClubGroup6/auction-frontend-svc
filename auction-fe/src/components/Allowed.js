@@ -50,7 +50,7 @@ function Allowed() {
     console.log("This shouldbe the address\n", address)
     const connectedContract = await auctionFactoryContract.connect(signer)
     const withdraw = await connectedContract.ownerFeeWithdraw(
-      "0x16A7D3d770d3EEB0c5341e5A43F40245DA903eA6",
+      address,
       ethers.utils.parseEther(ownerFeePool)
     )
   }

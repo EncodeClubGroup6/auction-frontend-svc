@@ -1,9 +1,9 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { ethers } from "ethers"
 import createAuctionFactoryJson from "../constant/AuctionFactory.json"
 const ALCHEMY_API_KEY_MUMBAI = process.env.ALCHEMY_API_KEY_MUMBAI
 
-function CreateAuction() {
+function CreateAuction(props) {
   const [contractParams, setContractParams] = useState({
     nft_address: "",
     nft_id: "",
@@ -13,10 +13,9 @@ function CreateAuction() {
   })
   const [ownerFeePool, setOwnerFeePool] = useState("")
 
-  const provider = new ethers.providers.AlchemyProvider(
-    "maticmum",
-    "7psAKFAlBLpGe47Y6cVcpOdTBj6TG2Gq"
-  )
+  const FACTORY_FEE = 0.03
+
+  const provider = new ethers.providers.InfuraProvider("maticmum")
 
   const auctionFactoryContract = new ethers.Contract(
     "0xF5d54B73285f6534B38E76527B3c7aF2e75C986e",
@@ -27,7 +26,6 @@ function CreateAuction() {
   async function ownerFee() {
     const fee = await auctionFactoryContract.ownerFeePool()
     const formatFee = ethers.utils.formatEther(fee.toString())
-    console.log(formatFee)
     setOwnerFeePool(formatFee)
   }
 
@@ -40,16 +38,29 @@ function CreateAuction() {
       ...contractParams,
       [event.target.name]: event.target.value,
     })
+
+    console.log(contractParams)
   }
 
   const createAuction = async () => {
-    const createAuctionTx = await auctionFactoryContract.createAuction(
+    const metamaskWalletProvider = new ethers.providers.Web3Provider(
+      window.ethereum
+    )
+    const signer = metamaskWalletProvider.getSigner()
+    const connectedContract = await auctionFactoryContract.connect(signer)
+
+    const createAuctionTx = await connectedContract.createAuction(
       contractParams.nft_address,
       contractParams.nft_id,
       contractParams.starting_bid,
       contractParams.seller_address,
-      contractParams.auction_token
+      contractParams.auction_token,
+      {
+        value: ethers.utils.parseEther(FACTORY_FEE.toFixed(18)),
+      }
     )
+
+    console.log("calling the create auction function..")
     await createAuctionTx.wait(1)
   }
 

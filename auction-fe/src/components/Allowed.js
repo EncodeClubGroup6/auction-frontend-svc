@@ -32,10 +32,11 @@ function Allowed() {
 
   const onChange = (event) => {
     console.log(event.target.value)
-    setAddress(event.target.value)
+    let a = event.target.value
+    setAddress(a)
   }
 
-  async function withdrawFee(address) {
+  const withdrawFee = async (address) => {
     const provider = new ethers.providers.InfuraProvider("maticmum")
     const auctionFactoryContract = new ethers.Contract(
       "0xF5d54B73285f6534B38E76527B3c7aF2e75C986e",
@@ -80,7 +81,7 @@ function Allowed() {
         </div>
         <div className='mt-2'>
           <button
-            onClick={withdrawFee}
+            onClick={() => withdrawFee(address)}
             className='hover:shadow-form w-full rounded-md bg-[#06986c] py-3 px-8 text-center text-base font-semibold text-white outline-none'
           >
             Withdraw

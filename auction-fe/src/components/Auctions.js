@@ -37,12 +37,11 @@ function Auctions() {
         auctions = await auctionFactoryContract.deployedAuctions(i)
         auctionsArray.push(auctions)
       }
+      console.log(`auctionsArray ${auctionsArray}`)
       setDeployedAuctions(auctionsArray)
     }
 
-    fetchAuctions().then((deployedAuctions) => {
-      console.log(`deployedAuctions ${deployedAuctions}`)
-    })
+    fetchAuctions()
   }, [])
 
   useEffect(() => {
@@ -79,6 +78,7 @@ function Auctions() {
   }, [])
 
   const render = Object.values(auctionObject).map((el, i) => {
+
     return (
       <div
         md='auto'
@@ -86,14 +86,17 @@ function Auctions() {
       >
         <div style={{ width: "18rem", marginBottom: "20px" }}>
           <div>
-            <h1>{el.nft_address}</h1>
-            <h1>{el.nft_id}</h1>
-            <h1>{el.seller}</h1>
-            <h1>{el.end_at}</h1>
-            <h1>{el.started}</h1>
-            <h1>{el.ended}</h1>
-            <h1>{el.higher_bidder}</h1>
-            <h1>{el.high_bid}</h1>
+            <h1>nft address : {Object.values(auctionObject)[0]}</h1>
+            <h1>aa: {Object.values(auctionObject)[2]}</h1>
+            <h1>bb: {Object.values(auctionObject)[3]}</h1>
+            <h1>{Object.values(auctionObject)[4]}</h1>
+            <h1>{Object.values(auctionObject)[5]}</h1>
+            <h1>{Object.values(auctionObject)[10]}</h1>
+          {/* <h1>{Object.values(auctionObject)[7]}</h1>  */}
+            {/* 
+            <h1>{Object.values(auctionObject)[2]}
+            </h1>
+            */}
             {/* <h3 postId={post.id} />
               <h3 postId={post.id} /> */}
           </div>
@@ -102,14 +105,9 @@ function Auctions() {
     )
   })
 
-  // render() {
-  //     const htmlElement = Object.values(auctionObject).map(
 
-  //         );
-  //         return (<>{htmlElement}</>)
-  //   }
 
-  return <div>Hello</div>
+  return <div>{render}</div>
 }
 
 export default Auctions

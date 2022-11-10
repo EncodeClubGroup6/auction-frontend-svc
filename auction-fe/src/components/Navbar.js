@@ -4,7 +4,6 @@ import MetamaskButton from './MetamaskButton'
 export default function Navbar() {
     return (
         <div>
-
             <div className="flex flex-wrap ">
                 <section className="relative mx-auto">
 

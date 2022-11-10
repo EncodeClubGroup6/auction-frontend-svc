@@ -66,7 +66,7 @@ function CreateAuction(props) {
 
   return (
     <div className="flex items-center justify-center p-12">
-      <div className="mx-auto w-full max-w-[550px]">
+      <div className="mx-auto w-full max-w-[550px] border border-gray-200  p-5 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
         <form onSubmit={handleSubmit}>
             <h3 className="font-bold text-2xl text-center">Form</h3>
           <div className="mb-8 mt-3">

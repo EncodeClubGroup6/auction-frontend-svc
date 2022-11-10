@@ -57,37 +57,43 @@ function Allowed() {
 
   return (
     <>
-      <Navbar />
-      <h1>{ownerFeePool}</h1>
-      <form onSubmit={handleSubmit}>
-        <h3 className='font-bold text-2xl text-center'>Form</h3>
-        <div className='mb-8 mt-3'>
-          <input
-            type='text'
-            onChange={onChange}
-            name='address'
-            placeholder='Address'
-            value={address}
-            className='w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md'
-          />
+      <div className="flex items-center justify-center p-12">
+        <div className="mx-auto w-full max-w-[550px] border border-gray-200  p-5 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
+          <div className="flex justify-center border-slate-100 rounded-md p-5 bg-slate-100">
+            <h1 className="font-semibold text-xl">{ownerFeePool}</h1>
+          </div>
+          
+          <form onSubmit={handleSubmit}>
+            <h3 className='font-bold text-2xl text-center'>Admin Area</h3>
+            <div className='mb-8 mt-4'>
+              <input
+                type='text'
+                onChange={onChange}
+                name='address'
+                placeholder='Address'
+                value={address}
+                className='w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md'
+              />
+            </div>
+            <div className='mt-2'>
+              <button
+                type='submit'
+                className='hover:shadow-form w-full rounded-md bg-[#06986c] py-3 px-8 text-center text-base font-semibold text-white outline-none'
+              >
+                Submit Address
+              </button>
+            </div>
+            <div className='mt-2'>
+              <button
+                onClick={() => withdrawFee(address)}
+                className='hover:shadow-form w-full rounded-md bg-[#06986c] py-3 px-8 text-center text-base font-semibold text-white outline-none'
+              >
+                Withdraw
+              </button>
+            </div>
+          </form>
         </div>
-        <div className='mt-2'>
-          <button
-            type='submit'
-            className='hover:shadow-form w-full rounded-md bg-[#06986c] py-3 px-8 text-center text-base font-semibold text-white outline-none'
-          >
-            Submit Address
-          </button>
-        </div>
-        <div className='mt-2'>
-          <button
-            onClick={() => withdrawFee(address)}
-            className='hover:shadow-form w-full rounded-md bg-[#06986c] py-3 px-8 text-center text-base font-semibold text-white outline-none'
-          >
-            Withdraw
-          </button>
-        </div>
-      </form>
+      </div>
     </>
   )
 }

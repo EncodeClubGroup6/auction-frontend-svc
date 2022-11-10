@@ -8,19 +8,8 @@ import Admin from "./components/Admin"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path='/'
-          element={<App />}
-        />
-        <Route
-          path='/admin'
-          element={<Admin />}
-        />
-      </Routes>
-    </BrowserRouter>
+<React.StrictMode>
+    <App />
   </React.StrictMode>
 )
 

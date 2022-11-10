@@ -5,6 +5,7 @@ import App from "./App"
 import reportWebVitals from "./reportWebVitals"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Admin from "./components/Admin"
+import Auctions from "./components/Auctions"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
@@ -18,6 +19,10 @@ root.render(
         <Route
           path='/admin'
           element={<Admin />}
+        />
+        <Route
+          path='/auctions'
+          element={<Auctions />}
         />
       </Routes>
     </BrowserRouter>

@@ -10,8 +10,17 @@ function MetamaskButton() {
   useEffect(() => {
     if (window.ethereum) {
       setIsMetamaskInstalled(true)
+      if(account != ""){
+        localStorage.setItem('accountKey', JSON.stringify(account))
+      }
     }
-  }, [])
+  }, [account])
+
+  function getStorageValue() {
+    const saved = localStorage.getItem('accountKey');
+    console.log(saved)
+    return JSON.parse(saved)
+  }
 
   const connectWallet = async () => {
     let accounts = await window.ethereum.request({
@@ -29,7 +38,10 @@ function MetamaskButton() {
       setBalance(ethers.utils.formatEther(balance))
     }
     walletBalance()
-  }, [])
+    if(getStorageValue() != ""){
+      setAccount(getStorageValue())
+    }
+  }, [account])
 
   return !account ? (
     <button

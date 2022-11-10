@@ -5,6 +5,7 @@ import {  BrowserRouter, Routes, Route, Link } from "react-router-dom"
 import MetamaskButton from "./components/MetamaskButton"
 import Admin from "./components/Admin"
 import Home from "./components/Home"
+import Auctions from "./components/Auctions"
 
 const Navbar = () => {
   return (
@@ -20,6 +21,7 @@ const Navbar = () => {
               <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
                 <Link to='/' className="hover:text-gray-200"><li>Home</li></Link>
                 <Link to='/admin' className="hover:text-gray-200" ><li>Admin</li></Link>
+                <Link to='/auctions' className="hover:text-gray-200" ><li>Auctions</li></Link>
               </ul>
               <div className="hidden xl:flex items-center space-x-5 items-center">
                 <MetamaskButton />
@@ -46,6 +48,10 @@ function App() {
         <Route
           path='/admin'
           element={<Admin />}
+        />
+        <Route
+          path='/auctions'
+          element={<Auctions />}
         />
       </Routes>
     </BrowserRouter>

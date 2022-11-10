@@ -16,6 +16,7 @@ export default function Navbar() {
                             <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
                                 <li><a className="hover:text-gray-200" href="#">Home</a></li>
                                 <li><a className="hover:text-gray-200" href="/admin">Admin</a></li>
+                                <li><a className="hover:text-gray-200" href="/auctions">Auction</a></li>
                                 {/* <li><a className="hover:text-gray-200" href="#">Collections</a></li>
               <li><a className="hover:text-gray-200" href="#">Contact Us</a></li> */}
                             </ul>

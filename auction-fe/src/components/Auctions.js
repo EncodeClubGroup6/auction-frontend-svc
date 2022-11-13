@@ -80,27 +80,29 @@ function Auctions() {
   const render = Object.values(auctionObject).map((el, i) => {
 
     return (
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="w-full bg-slate-200 rounded-lg p-12 flex flex-col justify-center items-center"
+      <div className="w-full bg-gray-100">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6"
             md='auto'
             key={i}
           >
-            <div className="mb-8">
-              <div className="text-center">
-                <h1 className="text-xl text-gray-700 font-bold mb-2">nft address : {Object.values(auctionObject)[0]}</h1>
-                <h2 class="text-base text-gray-400 font-normal">aa: {Object.values(auctionObject)[2]}</h2>
-                <h2>bb: {Object.values(auctionObject)[3]}</h2>
-                <h2>{Object.values(auctionObject)[4]}</h2>
-                <h2>{Object.values(auctionObject)[5]}</h2>
-                <h2>{Object.values(auctionObject)[10]}</h2>
-                {/* <h1>{Object.values(auctionObject)[7]}</h1>  */}
-                {/* 
+            <div className="w-full bg-gray-900 rounded-lg sahdow-lg p-3 flex flex-col justify-center items-center">
+              <div className="mb-8">
+                <div class="text-center">
+                  <h1 className="text-xl text-gray-700 font-bold mb-2">nft address : {Object.values(auctionObject)[0]}</h1>
+                  <h2 class="text-base text-gray-400 font-normal">aa: {Object.values(auctionObject)[2]}</h2>
+                  <h2>bb: {Object.values(auctionObject)[3]}</h2>
+                  <h2>{Object.values(auctionObject)[4]}</h2>
+                  <h2>{Object.values(auctionObject)[5]}</h2>
+                  <h2>{Object.values(auctionObject)[10]}</h2>
+                  {/* <h1>{Object.values(auctionObject)[7]}</h1>  */}
+                  {/* 
             <h1>{Object.values(auctionObject)[2]}
             </h1>
             */}
-                {/* <h3 postId={post.id} />
+                  {/* <h3 postId={post.id} />
               <h3 postId={post.id} /> */}
+                </div>
               </div>
             </div>
           </div>

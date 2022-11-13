@@ -7,6 +7,7 @@ import Admin from "./components/Admin"
 import Home from "./components/Home"
 import Auctions from "./components/Auctions"
 
+
 const Navbar = () => {
   return (
     <div>
@@ -22,6 +23,7 @@ const Navbar = () => {
                 <Link to='/' className="hover:text-gray-200"><li>Home</li></Link>
                 <Link to='/admin' className="hover:text-gray-200" ><li>Admin</li></Link>
                 <Link to='/auctions' className="hover:text-gray-200" ><li>Auctions</li></Link>
+                <Link to='/create-auction' className="hover:text-gray-200" ><li>Create Auctions</li></Link>
               </ul>
               <div className="hidden xl:flex items-center space-x-5 items-center">
                 <MetamaskButton />
@@ -52,6 +54,11 @@ function App() {
         <Route
           path='/auctions'
           element={<Auctions />}
+        />
+     
+      <Route
+          path='/create-auction'
+          element={<CreateAuction />}
         />
       </Routes>
     </BrowserRouter>

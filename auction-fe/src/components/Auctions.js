@@ -82,19 +82,20 @@ function Auctions() {
     return (
       <div className="w-full bg-gray-100">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5"
             md='auto'
             key={i}
           >
-            <div className="w-full bg-gray-900 rounded-lg sahdow-lg p-3 flex flex-col justify-center items-center">
+            <img class="rounded-t-lg" src="https://flowbite.com/docs/images/blog/image-4.jpg" alt=""></img>
+            <div className="w-full bg-gray-300 rounded-lg shadow-lg p-3 flex flex-col justify-center items-center">
               <div className="mb-8">
                 <div class="text-center">
-                  <h1 className="text-xl text-gray-700 font-bold mb-2">nft address : {Object.values(auctionObject)[0]}</h1>
-                  <h2 class="text-base text-gray-400 font-normal">aa: {Object.values(auctionObject)[2]}</h2>
-                  <h2>bb: {Object.values(auctionObject)[3]}</h2>
-                  <h2>{Object.values(auctionObject)[4]}</h2>
-                  <h2>{Object.values(auctionObject)[5]}</h2>
-                  <h2>{Object.values(auctionObject)[10]}</h2>
+                  <p className="text-xl text-gray-700 font-bold mb-2">nft address : {Object.values(auctionObject)[0]}</p>
+                  <p class="text-base text-gray-400 font-normal">aa: {Object.values(auctionObject)[2]}</p>
+                  <p>bb: {Object.values(auctionObject)[3]}</p>
+                  <p>{Object.values(auctionObject)[4]}</p>
+                  <p>{Object.values(auctionObject)[5]}</p>
+                  <p>{Object.values(auctionObject)[10]}</p>
                   {/* <h1>{Object.values(auctionObject)[7]}</h1>  */}
                   {/* 
             <h1>{Object.values(auctionObject)[2]}
@@ -113,7 +114,77 @@ function Auctions() {
 
 
 
-  return <div>{render}</div>
+  return <div>{render}
+    {Object.values(auctionObject).map((index) => (<div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4 mx-auto mt-24">
+      <div class="block w-full overflow-x-auto">
+        <table class="items-center bg-transparent w-full border-collapse ">
+          <thead>
+            <tr>
+              <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                End At
+              </th>
+              <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                NFT Id
+              </th>
+              <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                Highest Bidder
+              </th>
+              <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                Seller
+              </th>
+              <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                Ended
+              </th>
+              <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                Started
+              </th>
+              <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                NFT Address
+              </th>
+              <th class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
+                High Bid
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 " key={index}>
+            {Object.values(auctionObject.end_at)}
+            </th>
+            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 " key={index}>
+            {Object.values(auctionObject.nft_id)}
+            </td>
+            <td class="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4" key={index}>
+            {Object.values(auctionObject.higher_bidder)}
+            </td>
+            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4" key={index}>
+              <i class="fas fa-arrow-up text-emerald-500 mr-4"></i>
+              {Object.values(auctionObject.seller)}
+            </td>
+            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4" key={index}>
+              <i class="fas fa-arrow-up text-emerald-500 mr-4"></i>
+              {Object.values(auctionObject.ended)}
+            </td>
+            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4" key={index}>
+              <i class="fas fa-arrow-up text-emerald-500 mr-4"></i>
+              {Object.values(auctionObject.started)}
+            </td>
+            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4" key={index}>
+              <i class="fas fa-arrow-up text-emerald-500 mr-4"></i>
+              {Object.values(auctionObject.nft_address)}
+            </td>
+            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4" key={index}>
+              <i class="fas fa-arrow-up text-emerald-500 mr-4"></i>
+              {Object.values(auctionObject.high_bid)}
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>))
+
+    }
+  </div>
 }
 
 export default Auctions

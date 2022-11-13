@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { ethers } from "ethers"
 import "./MetamaskButton"
 import {renderAuctions} from "./Auctions"
+import bigNumberToETHString from "./utils/bigNumberToETHString"
 
 
 export default function Dasboard() {
@@ -44,7 +45,7 @@ export default function Dasboard() {
                         <div className="space-y-4 mt-4 text-center sm:mt-0 sm:text-left">
                             <h6 className="text-lg font-semibold leading-none">Your Balance is</h6>
                             <h2 className="text-sm">Your Account {account.slice(0,12)}</h2>
-                            <span className="text-3xl text-blue-800"> 30 MATIC</span>
+                            <span className="text-3xl text-blue-800"> {balance} MATIC</span>
                             <div>
                                 <span className="text-xs text-gray-500">Product Designer</span>
                             </div>

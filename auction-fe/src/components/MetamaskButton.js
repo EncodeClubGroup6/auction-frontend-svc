@@ -10,7 +10,7 @@ function MetamaskButton() {
   useEffect(() => {
     if (window.ethereum) {
       setIsMetamaskInstalled(true)
-      if(account != ""){
+      if(account !== ""){
         localStorage.setItem('accountKey', JSON.stringify(account))
       }
     }

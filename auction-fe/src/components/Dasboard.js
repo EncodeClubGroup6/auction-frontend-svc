@@ -28,7 +28,7 @@ export default function Dasboard() {
     return (
         // Start your Project
         <div classNme="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20">
-            <div class='flex flex-row '>
+            <div class='flex flex-row w-5/6 justify-center'>
                 <div class='m-5 break-inside relative overflow-hidden flex flex-col justify-between space-y-2 text-sm rounded-xl max-w-[23rem] p-10 mb-4 bg-slate-200 text-black'>
                     <span class='uppercase text-md font-bold text-black'>start your auction</span>
                     <div class='flex flex-row items-center space-x-3'>
@@ -123,7 +123,7 @@ export default function Dasboard() {
 
 
             {/* //Profile Photo */}
-            <div class="items-end w-[900px] m-5">
+            <div class="flex flex-row w-5/6 justify-center">
                 <div class="flex flex-row space-y-2 items-start justify-center h-full p-4 bg-gray-800 rounded-xl space-x-10">
                     <div class="w-2/3">
                         <p class="w-full text-2xl font-semibold text-white">Hello {name}</p>

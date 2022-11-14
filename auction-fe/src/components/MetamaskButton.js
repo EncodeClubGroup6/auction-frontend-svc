@@ -10,14 +10,14 @@ function MetamaskButton() {
   useEffect(() => {
     if (window.ethereum) {
       setIsMetamaskInstalled(true)
-      if(account !== ""){
-        localStorage.setItem('accountKey', JSON.stringify(account))
+      if (account !== "") {
+        localStorage.setItem("accountKey", JSON.stringify(account))
       }
     }
   }, [account])
 
   function getStorageValue() {
-    const saved = localStorage.getItem('accountKey');
+    const saved = localStorage.getItem("accountKey")
     console.log(saved)
     return JSON.parse(saved)
   }
@@ -38,7 +38,7 @@ function MetamaskButton() {
       setBalance(ethers.utils.formatEther(balance))
     }
     walletBalance()
-    if(getStorageValue() != ""){
+    if (getStorageValue() != "") {
       setAccount(getStorageValue())
     }
   }, [account])

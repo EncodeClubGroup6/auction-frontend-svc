@@ -3,6 +3,10 @@ import { ethers } from "ethers"
 import React, { useEffect, useState } from "react"
 import createAuctionFactoryJson from "../constant/AuctionFactory.json"
 import EnglishAuctionJson from "../constant/EnglishAuction.json"
+import {  } from "react-icons/fa"
+import { GoCheck, GoSearch, GoMegaphone } from "react-icons/go";
+import { VscAccount } from "react-icons/vsc";
+
 
 // ToDo: useEffect for fetching auction should be run once--> Hoooooooooooooooow cannnnnnnn damnnnnnnn
 // ToDo: verify the auction object, if is what we expect, let's render it guys :)
@@ -97,8 +101,8 @@ function Auctions() {
                   <p className='mb-2 text-xl font-bold text-gray-700'>
                     nft address: {Object.values(auctionObject)[0]}
                   </p>
-                  <p className='mb-2 text-xl font-bold text-gray-700'>
-                    seller: {Object.values(auctionObject)[2]}
+                   <p className='justify-center mb-2 text-xl font-bold text-gray-700 d-flex'>
+                   <VscAccount size={20} /> <span>seller: {Object.values(auctionObject)[2]}</span> 
                   </p>
                   <p className='mb-2 text-xl font-bold text-gray-700'>
                     ended at: {Object.values(auctionObject)[3]}
@@ -114,14 +118,14 @@ function Auctions() {
                   {/* <h3 postId={post.id} />
               <h3 postId={post.id} /> */}
                   <div>
-                    <button className="p-3 m-3 text-white bg-green-600 rounded">
-                      Place Bid
+                    <button className="px-8 py-2 m-5 text-white bg-gray-900 rounded hover:bg-gray-600">
+                      <GoMegaphone /> Place Bid
                     </button>
-                    <button className="p-3 m-3 text-white bg-green-600 rounded">
-                      Buy It Now
+                    <button className="p-3 m-3 text-white bg-gray-900 rounded">
+                     <GoCheck /> Buy It Now
                     </button>
-                    <button className="px-3 py-1 m-2 text-white bg-gray-900 rounded">
-                      Watch this item
+                    <button className="px-5 py-3 m-2 text-white bg-gray-900 rounded">
+                      <GoSearch /> Watch this item
                     </button>
                   </div>
                 </div>

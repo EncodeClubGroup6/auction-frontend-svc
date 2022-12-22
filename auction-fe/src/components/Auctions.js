@@ -80,9 +80,9 @@ function Auctions() {
   const render = Object.entries(auctionObject).map((el, i) => {
     return (
       <div className='w-full bg-gray-100'>
-        <div className='max-w-7xl  mx-auto px-4 sm:px-6 lg:px-4 py-12'>
+        <div className='px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:px-4'>
           <div
-            className='bg-white break-all shadow-md border border-gray-200 rounded-lg max-w-6xl mb-5'
+            className='max-w-6xl mb-5 break-all bg-white border border-gray-200 rounded-lg shadow-md'
             md='auto'
             key={i}
           >
@@ -91,20 +91,20 @@ function Auctions() {
               src='https://flowbite.com/docs/images/blog/image-4.jpg'
               alt=''
             ></img> */}
-            <div className='w-full bg-gray-300 rounded-lg shadow-lg p-3 flex flex-col justify-center items-center'>
+            <div className='flex flex-col items-center justify-center w-full p-3 bg-gray-300 rounded-lg shadow-lg'>
               <div className='mb-8'>
                 <div className='text-center'>
-                  <p className='text-xl text-gray-700 font-bold mb-2'>
+                  <p className='mb-2 text-xl font-bold text-gray-700'>
                     nft address: {Object.values(auctionObject)[0]}
                   </p>
-                  <p className='text-xl text-gray-700 font-bold mb-2'>
+                  <p className='mb-2 text-xl font-bold text-gray-700'>
                     seller: {Object.values(auctionObject)[2]}
                   </p>
-                  <p className='text-xl text-gray-700 font-bold mb-2'>
+                  <p className='mb-2 text-xl font-bold text-gray-700'>
                     ended at: {Object.values(auctionObject)[3]}
                   </p>
-                  {/* <p className='text-xl text-gray-700 font-bold mb-2'>started: {Object.values(auctionObject)[4]}</p>
-                  <p className='text-xl text-gray-700 font-bold mb-2'>ended: {Object.values(auctionObject)[5]}</p> */}
+                  {/* <p className='mb-2 text-xl font-bold text-gray-700'>started: {Object.values(auctionObject)[4]}</p>
+                  <p className='mb-2 text-xl font-bold text-gray-700'>ended: {Object.values(auctionObject)[5]}</p> */}
                   {/* <p>{Object.entries(auctionObject)[10]}</p> */}
                   {/* <h1>{Object.values(auctionObject)[7]}</h1>  */}
                   {/* 
@@ -113,6 +113,17 @@ function Auctions() {
             */}
                   {/* <h3 postId={post.id} />
               <h3 postId={post.id} /> */}
+                  <div>
+                    <button className="p-3 m-3 text-white bg-green-600 rounded">
+                      Place Bid
+                    </button>
+                    <button className="p-3 m-3 text-white bg-green-600 rounded">
+                      Buy It Now
+                    </button>
+                    <button className="px-3 py-1 m-2 text-white bg-gray-900 rounded">
+                      Watch this item
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -126,7 +137,7 @@ function Auctions() {
     <div>
       {render}
       {Object.entries(auctionObject).map((index) => (
-        <div className='w-full xl:w-8/12 mb-12 xl:mb-0 px-4 mx-auto mt-24'>
+        <div className='w-full px-4 mx-auto mt-24 mb-12 xl:w-8/12 xl:mb-0'>
           <div class='block w-full overflow-x-auto'>
             <table class='items-center bg-transparent w-full border-collapse '>
               <thead>

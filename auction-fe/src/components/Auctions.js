@@ -3,7 +3,7 @@ import { ethers } from "ethers"
 import React, { useEffect, useState } from "react"
 import createAuctionFactoryJson from "../constant/AuctionFactory.json"
 import EnglishAuctionJson from "../constant/EnglishAuction.json"
-import {  } from "react-icons/fa"
+import { } from "react-icons/fa"
 import { GoCheck, GoSearch, GoMegaphone } from "react-icons/go";
 import { VscAccount } from "react-icons/vsc";
 
@@ -81,9 +81,21 @@ function Auctions() {
     })
   }, [])
 
+  const [userInput, setUserInput] = useState("");
+  const handleChange = e => {
+    setUserInput(e.target.value);
+  };
+
+  const addItem = e => {
+    if (userInput !== "") {
+      setAuctionObject([...auctionObject]);
+      setUserInput("");
+    }
+  };
+
   const render = Object.entries(auctionObject).map((el, i) => {
     return (
-      <div className='w-full bg-gray-100'>
+      <div className="">
         <div className='px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:px-4'>
           <div
             className='max-w-6xl mb-5 break-all bg-white border border-gray-200 rounded-lg shadow-md'
@@ -101,8 +113,8 @@ function Auctions() {
                   <p className='mb-2 text-xl font-bold text-gray-700'>
                     nft address: {Object.values(auctionObject)[0]}
                   </p>
-                   <p className='justify-center mb-2 text-xl font-bold text-gray-700 d-flex'>
-                   <VscAccount size={20} /> <span>seller: {Object.values(auctionObject)[2]}</span> 
+                  <p className='justify-center mb-2 text-xl font-bold text-gray-700 d-flex'>
+                    <VscAccount size={20} /> <span>seller: {Object.values(auctionObject)[2]}</span>
                   </p>
                   <p className='mb-2 text-xl font-bold text-gray-700'>
                     ended at: {Object.values(auctionObject)[3]}
@@ -122,7 +134,7 @@ function Auctions() {
                       <GoMegaphone /> Place Bid
                     </button>
                     <button className="p-3 m-3 text-white bg-gray-900 rounded">
-                     <GoCheck /> Buy It Now
+                      <GoCheck /> Buy It Now
                     </button>
                     <button className="px-5 py-3 m-2 text-white bg-gray-900 rounded">
                       <GoSearch /> Watch this item
@@ -138,102 +150,114 @@ function Auctions() {
   })
 
   return (
-    <div>
-      {render}
-      {Object.entries(auctionObject).map((index) => (
-        <div className='w-full px-4 mx-auto mt-24 mb-12 xl:w-8/12 xl:mb-0'>
-          <div class='block w-full overflow-x-auto'>
-            <table class='items-center bg-transparent w-full border-collapse '>
-              <thead>
-                <tr>
-                  <th class='px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left'>
-                    End At
-                  </th>
-                  <th class='px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left'>
-                    NFT Id
-                  </th>
-                  <th class='px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left'>
-                    Highest Bidder
-                  </th>
-                  <th class='px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left'>
-                    Seller
-                  </th>
-                  <th class='px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left'>
-                    Ended
-                  </th>
-                  <th class='px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left'>
-                    Started
-                  </th>
-                  <th class='px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left'>
-                    NFT Address
-                  </th>
-                  <th class='px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left'>
-                    High Bid
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th
-                    class='border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 '
-                    key={index}
-                  >
-                    {Object.values(auctionObject.end_at)}
-                  </th>
-                  <td
-                    class='border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 '
-                    key={index}
-                  >
-                    {Object.values(auctionObject.nft_id)}
-                  </td>
-                  <td
-                    class='border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4'
-                    key={index}
-                  >
-                    {Object.values(auctionObject.higher_bidder)}
-                  </td>
-                  <td
-                    class='border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4'
-                    key={index}
-                  >
-                    <i class='fas fa-arrow-up text-emerald-500 mr-4'></i>
-                    {Object.values(auctionObject.seller)}
-                  </td>
-                  <td
-                    class='border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4'
-                    key={index}
-                  >
-                    <i class='fas fa-arrow-up text-emerald-500 mr-4'></i>
-                    {Object.values(auctionObject.ended)}
-                  </td>
-                  <td
-                    class='border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4'
-                    key={index}
-                  >
-                    <i class='fas fa-arrow-up text-emerald-500 mr-4'></i>
-                    {Object.values(auctionObject.started)}
-                  </td>
-                  <td
-                    class='border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4'
-                    key={index}
-                  >
-                    <i class='fas fa-arrow-up text-emerald-500 mr-4'></i>
-                    {Object.values(auctionObject.nft_address)}
-                  </td>
-                  <td
-                    class='border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4'
-                    key={index}
-                  >
-                    <i class='fas fa-arrow-up text-emerald-500 mr-4'></i>
-                    {Object.values(auctionObject.high_bid)}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+    <>
+      <div className='w-full bg-gray-100'>
+        {/* Search Bar */}
+        <div className="relative pt-2 mx-auto text-gray-600">
+          <input className="h-10 px-5 pr-16 text-sm bg-white border-2 border-gray-300 rounded-lg focus:outline-none"
+            value={userInput}
+            onChange={handleChange}
+            type="search" name="search" placeholder="Search" />
+          <button type="submit" className="p-2 m-2 rounded bg-cyan-900 "><GoSearch color="white" /></button>
         </div>
-      ))}
-    </div>
+        <h1>{userInput}</h1>
+
+        {render}
+        {Object.entries(auctionObject).map((index) => (
+          <div className='w-full px-4 mx-auto mt-24 mb-12 xl:w-8/12 xl:mb-0'>
+            <div class='block w-full overflow-x-auto'>
+              <table class='items-center bg-transparent w-full border-collapse '>
+                <thead>
+                  <tr>
+                    <th class='px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left'>
+                      End At
+                    </th>
+                    <th class='px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left'>
+                      NFT Id
+                    </th>
+                    <th class='px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left'>
+                      Highest Bidder
+                    </th>
+                    <th class='px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left'>
+                      Seller
+                    </th>
+                    <th class='px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left'>
+                      Ended
+                    </th>
+                    <th class='px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left'>
+                      Started
+                    </th>
+                    <th class='px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left'>
+                      NFT Address
+                    </th>
+                    <th class='px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left'>
+                      High Bid
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th
+                      class='border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 '
+                      key={index}
+                    >
+                      {Object.values(auctionObject.end_at)}
+                    </th>
+                    <td
+                      class='border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 '
+                      key={index}
+                    >
+                      {Object.values(auctionObject.nft_id)}
+                    </td>
+                    <td
+                      class='border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4'
+                      key={index}
+                    >
+                      {Object.values(auctionObject.higher_bidder)}
+                    </td>
+                    <td
+                      class='border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4'
+                      key={index}
+                    >
+                      <i class='fas fa-arrow-up text-emerald-500 mr-4'></i>
+                      {Object.values(auctionObject.seller)}
+                    </td>
+                    <td
+                      class='border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4'
+                      key={index}
+                    >
+                      <i class='fas fa-arrow-up text-emerald-500 mr-4'></i>
+                      {Object.values(auctionObject.ended)}
+                    </td>
+                    <td
+                      class='border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4'
+                      key={index}
+                    >
+                      <i class='fas fa-arrow-up text-emerald-500 mr-4'></i>
+                      {Object.values(auctionObject.started)}
+                    </td>
+                    <td
+                      class='border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4'
+                      key={index}
+                    >
+                      <i class='fas fa-arrow-up text-emerald-500 mr-4'></i>
+                      {Object.values(auctionObject.nft_address)}
+                    </td>
+                    <td
+                      class='border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4'
+                      key={index}
+                    >
+                      <i class='fas fa-arrow-up text-emerald-500 mr-4'></i>
+                      {Object.values(auctionObject.high_bid)}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
   )
 }
 

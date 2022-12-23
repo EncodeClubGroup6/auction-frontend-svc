@@ -81,6 +81,7 @@ function Auctions() {
     })
   }, [])
 
+  // Search Bar functionality
   const [userInput, setUserInput] = useState("");
   const handleChange = e => {
     setUserInput(e.target.value);
@@ -93,6 +94,7 @@ function Auctions() {
     }
   };
 
+  // Rendering Auction Objects
   const render = Object.entries(auctionObject).map((el, i) => {
     return (
       <div className="">

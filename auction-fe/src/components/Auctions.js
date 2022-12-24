@@ -153,16 +153,22 @@ function Auctions() {
 
   return (
     <>
-      <div className='w-full bg-gray-100'>
+      <div className="w-full bg-gray-100">
         {/* Search Bar */}
-        <div className="relative pt-2 mx-auto text-gray-600">
-          <input className="h-10 px-5 pr-16 text-sm bg-white border-2 border-gray-300 rounded-lg focus:outline-none"
-            value={userInput}
-            onChange={handleChange}
-            type="search" name="search" placeholder="Search" />
-          <button type="submit" className="p-2 m-2 rounded bg-cyan-900 "><GoSearch color="white" /></button>
+        <div className="flex items-center justify-center">
+          <div className="relative pt-2 mx-auto text-gray-600">
+            <input className="h-10 px-5 pr-16 text-sm bg-white border-2 border-gray-300 rounded-lg focus:outline-none"
+              value={userInput}
+              onChange={handleChange}
+              type="search" name="search" placeholder="Search" />
+            <button type="submit" className="p-2 m-2 rounded bg-cyan-900 "><GoSearch color="white" /></button>
+          </div>
+          <div className="flex items-center justify-center">
+            <h1>{userInput}</h1>
+          </div>
+
         </div>
-        <h1>{userInput}</h1>
+
 
         {render}
         {Object.entries(auctionObject).map((index) => (

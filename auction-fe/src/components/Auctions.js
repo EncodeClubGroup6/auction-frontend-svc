@@ -97,8 +97,10 @@ function Auctions() {
   // Rendering Auction Objects
   const render = Object.entries(auctionObject).map((el, i) => {
     return (
-      <div className="">
-        <div className='px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:px-4'>
+      <div className='flex items-center justify-center min-h-screen'>
+        <div className='p-4 items-center justify-center w-[680px] rounded-xl group sm:flex space-x-6 bg-white bg-opacity-50 shadow-xl hover:rounded-2xl'>
+        <img  className='block w-4/12 w-full h-40 mx-auto rounded-lg'  alt="art cover" loading="lazy" src='https://picsum.photos/seed/2/2000/1000' />
+        <div class='sm:w-8/12 pl-0 p-5'></div>
           <div
             className='max-w-6xl mb-5 break-all bg-white border border-gray-200 rounded-lg shadow-md'
             md='auto'

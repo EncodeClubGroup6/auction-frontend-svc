@@ -97,12 +97,12 @@ function Auctions() {
   // Rendering Auction Objects
   const render = Object.entries(auctionObject).map((el, i) => {
     return (
-      <div className='flex items-center justify-center min-h-screen'>
+      <div className='flex items-center justify-center mt-5'>
         <div className='p-4 items-center justify-center w-[680px] rounded-xl group sm:flex space-x-6 bg-white bg-opacity-50 shadow-xl hover:rounded-2xl'>
-        <img  className='block w-4/12 w-full h-40 mx-auto rounded-lg'  alt="art cover" loading="lazy" src='https://picsum.photos/seed/2/2000/1000' />
-        <div class='sm:w-8/12 pl-0 p-5'></div>
+          <img className='block w-4/12 w-full h-40 mx-auto rounded-lg' alt="art cover" loading="lazy" src='https://picsum.photos/seed/2/2000/1000' />
+          <div class='sm:w-8/12 pl-0 p-5'></div>
           <div
-            className='max-w-6xl mb-5 break-all bg-white border border-gray-200 rounded-lg shadow-md'
+            className='space-y-2'
             md='auto'
             key={i}
           >
@@ -111,7 +111,12 @@ function Auctions() {
               src='https://flowbite.com/docs/images/blog/image-4.jpg'
               alt=''
             ></img> */}
-            <div className='flex flex-col items-center justify-center w-full p-3 bg-gray-300 rounded-lg shadow-lg'>
+            <div className="space-y-4">
+              <h4 className="font-semibold text-justify text-md text-cyan-900">
+                Auction <span className="italic">number {i}</span> 
+              </h4>
+            </div>
+            <div className='flex flex-col items-center justify-center w-full p-3 rounded-lg '>
               <div className='mb-8'>
                 <div className='text-center'>
                   <p className='mb-2 text-xl font-bold text-gray-700'>
